@@ -1,0 +1,8 @@
+/configs/*.xml
+/configs/configs/
+/logs/
+/results_*/
+/configs_proof/
+__pycache__/
+*.o
+*.depends

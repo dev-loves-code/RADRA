@@ -1,0 +1,30 @@
+## 2D timing
+  fin       runs  590 lost      0 of    941132 geoWorst 1.000 msgs/run    252059 KB/run    2413 avgLat   363 p95  1452 dup   1231
+  fin_be    runs  590 lost    441 of    941132 geoWorst 0.000 msgs/run    175832 KB/run    1415 avgLat   382 p95  1688 dup    545
+  final     runs  590 lost      0 of    941132 geoWorst 1.000 msgs/run    332124 KB/run    1483 avgLat   210 p95   551 dup  32870
+  e2e_opt2  runs  590 lost      0 of    941132 geoWorst 1.000 msgs/run    270010 KB/run    2484 avgLat   337 p95  1391 dup  47035
+## 3D
+  fin       runs  190 lost      0 of    803375 geoWorst 1.000 msgs/run    906020 KB/run    5940 avgLat   299 p95   649 dup    516
+  fin_be    runs  190 lost    135 of    803375 geoWorst 0.448 msgs/run    726025 KB/run    4066 avgLat   285 p95   608 dup    176
+  final     runs  190 lost     19 of    803375 geoWorst 1.000 msgs/run   1596048 KB/run    4538 avgLat   180 p95   330 dup   6493
+  e2e_opt2  runs  190 lost      0 of    803375 geoWorst 0.448 msgs/run    920663 KB/run    5699 avgLat   280 p95   668 dup   9438
+## adversarial, no loss
+  fin       runs   33 lost      0 of     42097 geoWorst 1.000 msgs/run    148767 KB/run    1659 avgLat   371 p95  1636 dup      0
+  fin_be    runs   33 lost    136 of     42097 geoWorst 1.000 msgs/run    103410 KB/run    1005 avgLat   339 p95  1461 dup      0
+  final     runs   33 lost      0 of     42097 geoWorst 1.000 msgs/run    150977 KB/run     945 avgLat   207 p95   430 dup      0
+  e2e_opt2  runs   33 lost      0 of     42097 geoWorst 1.000 msgs/run    146373 KB/run    1524 avgLat   372 p95  1740 dup      0
+## 1 % link loss
+  fin       runs   15 lost      4 of     18375 geoWorst 1.000 msgs/run    248391 KB/run    2318 avgLat   585 p95  2374 dup      0
+  fin_be    runs   15 lost    384 of     18375 geoWorst 1.000 msgs/run    157269 KB/run    1095 avgLat   546 p95  2305 dup      0
+  final     runs   15 lost   3711 of     18375 geoWorst 1.000 msgs/run    333575 KB/run    1119 avgLat   230 p95   501 dup      0
+  e2e_opt2  runs   15 lost    315 of     18375 geoWorst 1.000 msgs/run    280988 KB/run    2680 avgLat  1322 p95  4123 dup      0
+## 5 % link loss
+  fin       runs   15 lost    157 of     18375 geoWorst 1.000 msgs/run    448295 KB/run    5737 avgLat  1535 p95  5344 dup      0
+  fin_be    runs   15 lost   1871 of     18375 geoWorst 1.000 msgs/run    174808 KB/run    1279 avgLat  1333 p95  4228 dup      0
+  final     runs   15 lost  12393 of     18375 geoWorst 1.000 msgs/run    328394 KB/run     914 avgLat   299 p95  1352 dup      0
+  e2e_opt2  runs   15 lost   5815 of     18375 geoWorst 1.000 msgs/run    377590 KB/run    4119 avgLat 10745 p95 53196 dup      0
+## ring
+  fin       runs    3 lost      0 of      4221 geoWorst 1.000 msgs/run    221853 KB/run    3018 avgLat   507 p95  1531 dup      0
+  fin_be    runs    3 lost      0 of      4221 geoWorst 1.000 msgs/run    134613 KB/run    1808 avgLat   472 p95  1440 dup      0
+  final     runs    3 lost      0 of      4221 geoWorst 1.000 msgs/run    199504 KB/run    1709 avgLat   386 p95  1130 dup      0
+  e2e_opt2  runs    3 lost      0 of      4221 geoWorst 1.000 msgs/run    229677 KB/run    2881 avgLat   453 p95  1343 dup      0

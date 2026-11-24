@@ -1,0 +1,12 @@
+## 2D timing
+  fin         runs 590 bad 0 deliverable 941132 lost 0 pdr 100.000 geoWorst 1.000 msgs/run 252059
+  fin_be      runs 590 bad 0 deliverable 941132 lost 441 pdr 99.953 geoWorst 0.000 msgs/run 175832
+  abl_notorn  runs 590 bad 0 deliverable 941132 lost 5573 pdr 99.408 geoWorst 0.000 msgs/run 169565
+  abl_nosalv  runs 590 bad 0 deliverable 941132 lost 86168 pdr 90.844 geoWorst 0.000 msgs/run 164280
+  abl_dv      runs 590 bad 0 deliverable 941132 lost 90758 pdr 90.357 geoWorst 0.000 msgs/run 159406
+## 3D
+  fin         runs 190 bad 0 deliverable 803375 lost 0 pdr 100.000 geoWorst 1.000 msgs/run 906020
+  fin_be      runs 190 bad 0 deliverable 803375 lost 135 pdr 99.983 geoWorst 0.448 msgs/run 726025
+  abl_notorn  runs 190 bad 0 deliverable 803375 lost 4889 pdr 99.391 geoWorst 0.438 msgs/run 700068
+  abl_nosalv  runs 190 bad 0 deliverable 803375 lost 34304 pdr 95.730 geoWorst 0.000 msgs/run 708421
+  abl_dv      runs 190 bad 0 deliverable 803375 lost 38399 pdr 95.220 geoWorst 0.000 msgs/run 684557
