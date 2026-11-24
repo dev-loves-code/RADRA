@@ -226,6 +226,7 @@ void BbRDRM5Code::heard(int f) {
 void BbRDRM5Code::declareDead(int f) {
     Time now = getScheduler()->now();
     bID nb = module->getInterface(f)->getConnectedBlockId();
+    logEv("dead", module->blockId, (int)nb);
     if (dead.count(nb)) {
         cnt.detections++;
         Time dl = now - deathTime[nb]; cnt.detectDelaySum += dl; cnt.detectMax = std::max(cnt.detectMax, dl);
@@ -246,6 +247,7 @@ void BbRDRM5Code::declareDead(int f) {
 // a neighbour I do not depend on went quiet: just mark it (never use it, erase it from the map)
 void BbRDRM5Code::markDead(int f) {
     bID nb = module->getInterface(f)->getConnectedBlockId();
+    logEv("dead", module->blockId, (int)nb);
     if (dead.count(nb)) { cnt.detections++; Time dl = getScheduler()->now() - deathTime[nb]; cnt.detectDelaySum += dl; cnt.detectMax = std::max(cnt.detectMax, dl); }
     else cnt.falsePos++;
     cnt.marked++;
@@ -1542,7 +1544,7 @@ int BbRDRM5Code::chooseFace(int r, UDataMsg *d, int fromFace) {
             double p = penalty(f, r);
             if (p < pb) { pb = p; best = f; }
         }
-        if (best >= 0 && pb + cfg.lambda < pc) { d->det--; cnt.detours++; return best; }
+        if (best >= 0 && pb + cfg.lambda < pc) { d->det--; cnt.detours++; logEv("detour", module->blockId, d->pid); return best; }
     }
     return cur;
 }

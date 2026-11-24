@@ -34,8 +34,28 @@ explanation of each part:
 
 ## Videos
 
-**Screen recordings of VisibleSim** (`videos/simulator/`). These are real runs of the RADRA app in the
-simulator GUI. Modules are coloured by region, and failed modules turn red.
+**RADRA in action: slow-motion scenario videos** (`videos/scenarios/`). Each video is one real run of
+the final RADRA code in VisibleSim (seed 1), drawn hop by hop from the simulator's event log. Every
+dot is a real message of that run. The panel on the right shows live counters computed from the same
+log (packets sent and delivered, latency, hops, failures detected, repair messages, salvaged and re-sent
+packets, load) and explains what is happening. A badge shows the playback speed, from ×0.05 slow motion
+to fast forward. Each video ends with the final counters printed by the simulator.
+
+| Video | What it shows |
+|---|---|
+| [`anycast.mp4`](videos/scenarios/anycast.mp4) | 400-module humanoid. Packets follow region gradients along shortest paths to the first module of the target region; receipts go back to the source. 2,000 / 2,000 delivered. |
+| [`unicast.mp4`](videos/scenarios/unicast.mp4) | Same robot, unicast: the gradient leads to the region, then the region map leads to the exact target module. 2,000 / 2,000 delivered. |
+| [`geocast.mp4`](videos/scenarios/geocast.mp4) | One copy travels to the target region, then floods only inside it (shaded as it spreads). 80 geocasts, each reaching a whole region. |
+| [`failures.mp4`](videos/scenarios/failures.mp4) | 40 of 400 modules fail silently at 15 s: heartbeat detection, local gradient repair, salvage of held packets, end-to-end re-sends. 1,312 / 1,312 deliverable packets delivered. |
+| [`hotspot.mp4`](videos/scenarios/hotspot.mp4) | Side by side, arms and legs stream 1,600 packets to the head. Lowest-id forwarding vs RADRA load-aware forwarding with sideways detours; modules coloured by load. Busiest module 800 → 572, p95 latency 1.81 s → 0.29 s. |
+| [`torn.mp4`](videos/scenarios/torn.mp4) | Ring robot whose region is cut in two at 15 s. RADRA (top) delivers 1,340 / 1,340; without torn-region handling (bottom) 98 packets are lost. |
+
+Rebuild them with `bash tools/make_scenario_videos.sh ~/VisibleSim` (configurations in `configs/videos/`,
+renderer `tools/scenario_video.py`). The event log (`RR_LOG=<file>.csv`) only records what the run does;
+it does not change its behaviour.
+
+**Screen recordings of VisibleSim** (`videos/simulator/`). The same app in the simulator GUI, which shows
+the robot and its failures (red) but not the messages.
 
 | Video | What it shows |
 |---|---|
@@ -44,8 +64,7 @@ simulator GUI. Modules are coloured by region, and failed modules turn red.
 | [`vs_3d_humanoid_wall.mp4`](videos/simulator/vs_3d_humanoid_wall.mp4) | 3D humanoid (1,264 modules), geocast. A wall of modules fails through the torso and tears it. |
 | [`vs_ring_split.mp4`](videos/simulator/vs_ring_split.mp4) | Ring-shaped robot (272 modules), unicast. A failure cuts the ring region into two pieces. |
 
-**Animated traces** (`videos/final/`). These are drawn from the simulator's event logs of the same
-code and show what the GUI does not: packets, repairs and load.
+**Earlier summary videos** (`videos/final/`), also drawn from event logs of the final code.
 
 | Video | What it shows |
 |---|---|

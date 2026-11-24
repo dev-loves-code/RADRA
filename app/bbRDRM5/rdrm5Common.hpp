@@ -302,9 +302,9 @@ inline std::map<int, std::set<bID>> geoWho;             // geocast: which module
 inline std::map<int, std::pair<long, Time>> geoRecv;     // geocast: modules reached, time of the last one
 inline int newPacket(bID src, int sr, int dr, bID dst, Time now) {
     PacketRecord r; r.src = src; r.srcRegion = sr; r.dstRegion = dr; r.dst = dst; r.sent = now;
-    packets.push_back(r); return (int)packets.size() - 1;
+    packets.push_back(r); logEv("send", src, (int)packets.size() - 1, dr); if (dst) logEv("sdst", dst, (int)packets.size() - 1, dr); return (int)packets.size() - 1;
 }
-inline void countData(bID from, int pid, unsigned bytes) { if (isAckPid(pid)) { count(K_ACK, from, bytes); acks[pid - ACKBASE].tx++; return; } count(K_DATA, from, bytes); packets[pid].tx++; cnt.dataTx[from]++; logEv("tx", from, pid); }
+inline void countData(bID from, int pid, unsigned bytes) { if (isAckPid(pid)) { count(K_ACK, from, bytes); acks[pid - ACKBASE].tx++; logEv("acktx", from, pid); return; } count(K_DATA, from, bytes); packets[pid].tx++; cnt.dataTx[from]++; logEv("tx", from, pid); }
 inline void noteDrop(bID at, int pid) { cnt.drops++; logEv("drop", at, pid); }
 inline bool deliver(int pid, bID by, int hops, int inHops, Time now) {
     PacketRecord &r = rec(pid);
