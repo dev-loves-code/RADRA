@@ -170,8 +170,3 @@ during the project (21,348), and `results/FIXES_LOG.md` records each change to t
 
 **Explaining a lost packet.** `RR_LOG=ev.csv $B -c X.xml -t -a 1` writes every send, delivery, drop
 and failure. `tools/why_missing.py` and `tools/fate.py` follow each lost packet through that log.
-
-## License
-
-To be decided by the authors before the repository is made public.
-VisibleSim is distributed under its own license (see its repository).
